@@ -19,6 +19,8 @@
 		6ABE2F9024CEF691009D7593 /* ListContactServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */; };
 		8650402829675AA900FF3BAC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650402729675AA900FF3BAC /* NetworkService.swift */; };
 		8650402E29675E7200FF3BAC /* ListContactsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650402D29675E7200FF3BAC /* ListContactsLoader.swift */; };
+		8650403229676A6200FF3BAC /* ListContactsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650403129676A6200FF3BAC /* ListContactsFactory.swift */; };
+		8650403429676A8400FF3BAC /* ListContactsRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650403329676A8400FF3BAC /* ListContactsRefreshController.swift */; };
 		B163815028775CAD0096BF33 /* ListContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactServiceTests.swift; sourceTree = "<group>"; };
 		8650402729675AA900FF3BAC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8650402D29675E7200FF3BAC /* ListContactsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsLoader.swift; sourceTree = "<group>"; };
+		8650403129676A6200FF3BAC /* ListContactsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsFactory.swift; sourceTree = "<group>"; };
+		8650403329676A8400FF3BAC /* ListContactsRefreshController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsRefreshController.swift; sourceTree = "<group>"; };
 		B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +163,8 @@
 			children = (
 				6AB24DF723EB558D00530BA5 /* ContactCell.swift */,
 				6AB24DE923EB54E800530BA5 /* ListContactsViewController.swift */,
+				8650403129676A6200FF3BAC /* ListContactsFactory.swift */,
+				8650403329676A8400FF3BAC /* ListContactsRefreshController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,9 +331,11 @@
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
 				8650402829675AA900FF3BAC /* NetworkService.swift in Sources */,
 				8650402E29675E7200FF3BAC /* ListContactsLoader.swift in Sources */,
+				8650403429676A8400FF3BAC /* ListContactsRefreshController.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,
+				8650403229676A6200FF3BAC /* ListContactsFactory.swift in Sources */,
 				6AB24DF823EB558D00530BA5 /* ContactCell.swift in Sources */,
 				6AB24DC223EB546D00530BA5 /* SceneDelegate.swift in Sources */,
 			);
