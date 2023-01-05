@@ -18,6 +18,7 @@
 		6AB24DF823EB558D00530BA5 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB24DF723EB558D00530BA5 /* ContactCell.swift */; };
 		6ABE2F9024CEF691009D7593 /* ListContactServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */; };
 		8650402829675AA900FF3BAC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650402729675AA900FF3BAC /* NetworkService.swift */; };
+		8650402E29675E7200FF3BAC /* ListContactsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650402D29675E7200FF3BAC /* ListContactsLoader.swift */; };
 		B163815028775CAD0096BF33 /* ListContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		6AB24DF723EB558D00530BA5 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		6ABE2F8F24CEF691009D7593 /* ListContactServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactServiceTests.swift; sourceTree = "<group>"; };
 		8650402729675AA900FF3BAC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8650402D29675E7200FF3BAC /* ListContactsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsLoader.swift; sourceTree = "<group>"; };
 		B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 		6AB24DBE23EB546D00530BA5 /* Interview */ = {
 			isa = PBXGroup;
 			children = (
+				8650402C29675E5100FF3BAC /* ListContactsDomain */,
 				8650402629675A8E00FF3BAC /* NetworkService */,
 				6AB24DF923EB55D400530BA5 /* Resources */,
 				6AB24DEB23EB54F500530BA5 /* Scenes */,
@@ -175,6 +178,14 @@
 				8650402729675AA900FF3BAC /* NetworkService.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		8650402C29675E5100FF3BAC /* ListContactsDomain */ = {
+			isa = PBXGroup;
+			children = (
+				8650402D29675E7200FF3BAC /* ListContactsLoader.swift */,
+			);
+			path = ListContactsDomain;
 			sourceTree = "<group>";
 		};
 		B163814B28775C780096BF33 /* Scenes */ = {
@@ -313,6 +324,7 @@
 				6AB24DEF23EB552100530BA5 /* Contact.swift in Sources */,
 				6AB24DEA23EB54E800530BA5 /* ListContactsViewController.swift in Sources */,
 				8650402829675AA900FF3BAC /* NetworkService.swift in Sources */,
+				8650402E29675E7200FF3BAC /* ListContactsLoader.swift in Sources */,
 				6AB24DF523EB556700530BA5 /* ListContactsService.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,
