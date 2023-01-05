@@ -1,5 +1,28 @@
 import UIKit
 
+final class ContactCellController {
+    
+    private let contact: Contact
+    init(contact: Contact) {
+        self.contact = contact
+    }
+    
+    func renderCell() -> ContactCell {
+        let cell = ContactCell()
+        cell.fullnameLabel.text = contact.name
+        
+        if let urlPhoto = URL(string: contact.photoURL) {
+            do {
+                let data = try Data(contentsOf: urlPhoto)
+                let image = UIImage(data: data)
+                cell.contactImage.image = image
+            } catch _ {}
+        }
+        
+        return cell
+    }
+}
+
 class ContactCell: UITableViewCell {
     lazy var contactImage: UIImageView = {
         let imgView = UIImageView()
@@ -18,13 +41,11 @@ class ContactCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         configureViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
         configureViews()
     }
     
