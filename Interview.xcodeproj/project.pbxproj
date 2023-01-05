@@ -21,6 +21,7 @@
 		8650403229676A6200FF3BAC /* ListContactsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650403129676A6200FF3BAC /* ListContactsFactory.swift */; };
 		8650403429676A8400FF3BAC /* ListContactsRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8650403329676A8400FF3BAC /* ListContactsRefreshController.swift */; };
 		86D26AE12967868B00817D85 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D26AE02967868B00817D85 /* MainQueueDispatchDecorator.swift */; };
+		86D26AE329678AF700817D85 /* ListContactImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D26AE229678AF700817D85 /* ListContactImageLoader.swift */; };
 		B163815028775CAD0096BF33 /* ListContactViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		8650403129676A6200FF3BAC /* ListContactsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsFactory.swift; sourceTree = "<group>"; };
 		8650403329676A8400FF3BAC /* ListContactsRefreshController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactsRefreshController.swift; sourceTree = "<group>"; };
 		86D26AE02967868B00817D85 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		86D26AE229678AF700817D85 /* ListContactImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactImageLoader.swift; sourceTree = "<group>"; };
 		B163814F28775CAD0096BF33 /* ListContactViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContactViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 			children = (
 				6AB24DEE23EB552100530BA5 /* Contact.swift */,
 				8650402D29675E7200FF3BAC /* ListContactsLoader.swift */,
+				86D26AE229678AF700817D85 /* ListContactImageLoader.swift */,
 			);
 			path = ListContactsDomain;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				8650402829675AA900FF3BAC /* NetworkService.swift in Sources */,
 				8650402E29675E7200FF3BAC /* ListContactsLoader.swift in Sources */,
 				86D26AE12967868B00817D85 /* MainQueueDispatchDecorator.swift in Sources */,
+				86D26AE329678AF700817D85 /* ListContactImageLoader.swift in Sources */,
 				8650403429676A8400FF3BAC /* ListContactsRefreshController.swift in Sources */,
 				6AB24DC023EB546D00530BA5 /* AppDelegate.swift in Sources */,
 				6AB24DF223EB554300530BA5 /* ListContactsViewModel.swift in Sources */,

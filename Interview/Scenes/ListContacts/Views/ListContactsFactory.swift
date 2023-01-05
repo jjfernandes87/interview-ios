@@ -14,18 +14,21 @@ final class ListContactsFactory {
         let urlSession = URLSession(configuration: .ephemeral)
         let network = NetworkService(network: urlSession)
         let service = ListContactsUseCase(network: network)
+        let imageLoader = ListContactImageUseCase(network: network)
+        
         let dispatchService: ListContactsLoader = MainQueueDispatchDecorator(decoratee: service)
+        let dispatchImageLoader: ListContactImageLoader = MainQueueDispatchDecorator(decoratee: imageLoader)
         
         let viewModel = NewListContactsViewModel(service: dispatchService)
         let refresh = ListContactsRefreshController(viewModel: viewModel)
         let controller = NewListContactsViewController(refreshController: refresh)
-        viewModel.onListContactsItems = adaptContactToContactCellController(controller: controller)
+        viewModel.onListContactsItems = adaptContactToContactCellController(controller: controller, imageLoader: dispatchImageLoader)
         return controller
     }
     
-    static func adaptContactToContactCellController(controller: NewListContactsViewController) -> ([Contact]) -> Void {
+    static func adaptContactToContactCellController(controller: NewListContactsViewController, imageLoader: ListContactImageLoader) -> ([Contact]) -> Void {
         return { [weak controller] items in
-            controller?.contacts = items.map { ContactCellController(contact: $0) }
+            controller?.contacts = items.map { ContactCellController(contact: $0, imageLoader: imageLoader) }
         }
     }
 }
@@ -38,4 +41,16 @@ extension MainQueueDispatchDecorator: ListContactsLoader where T == ListContacts
             }
         }
     }
+}
+
+extension MainQueueDispatchDecorator: ListContactImageLoader where T == ListContactImageLoader {
+    func loadImageData(from url: URL, completion: @escaping (Data?) -> Void) {
+        decoratee.loadImageData(from: url) { [weak self] data in
+            self?.dispatch {
+                completion(data)
+            }
+        }
+    }
+    
+    
 }

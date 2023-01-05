@@ -3,10 +3,13 @@ import UIKit
 final class ContactCellController {
     
     private let contact: Contact
-    init(contact: Contact) {
-        self.contact = contact
-    }
+    private let imageLoader: ListContactImageLoader
     
+    init(contact: Contact, imageLoader: ListContactImageLoader) {
+        self.contact = contact
+        self.imageLoader = imageLoader
+    }
+
     class UserIdsLegacy {
         static let legacyIds = [10, 11, 12, 13]
         static func isLegacy(id: Int) -> Bool {
@@ -17,20 +20,18 @@ final class ContactCellController {
     func renderCell() -> ContactCell {
         let cell = ContactCell()
         cell.fullnameLabel.text = contact.name
-        
-        if let urlPhoto = URL(string: contact.photoURL) {
-            do {
-                let data = try Data(contentsOf: urlPhoto)
-                let image = UIImage(data: data)
-                cell.contactImage.image = image
-            } catch _ {}
+        cell.contactImage.backgroundColor = .lightGray
+        if let url = URL(string: contact.photoURL) {
+            imageLoader.loadImageData(from: url) { [weak cell] data in
+                cell?.contactImage.image = nil
+                if let data = data {
+                    let image = UIImage(data: data)
+                    cell?.contactImage.image = image
+                }
+            }
         }
         
         return cell
-    }
-    
-    private func isLegacy(contact: Contact) -> Bool {
-        return UserIdsLegacy.isLegacy(id: contact.id)
     }
     
     func didSelectRow(from viewController: UIViewController) {
@@ -39,6 +40,10 @@ final class ContactCellController {
             return
         }
         showAlert(title: "Atenção", message:"Você tocou no contato sorteado", from: viewController)
+    }
+    
+    private func isLegacy(contact: Contact) -> Bool {
+        return UserIdsLegacy.isLegacy(id: contact.id)
     }
     
     private func showAlert(title: String, message: String, from viewController: UIViewController) {
