@@ -143,6 +143,7 @@ final class NewListContactsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 120
         refreshControl = refreshController?.view
         refreshController?.refresh()
     }

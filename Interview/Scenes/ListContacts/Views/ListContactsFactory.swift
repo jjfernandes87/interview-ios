@@ -14,7 +14,9 @@ final class ListContactsFactory {
         let urlSession = URLSession(configuration: .ephemeral)
         let network = NetworkService(network: urlSession)
         let service = ListContactsUseCase(network: network)
-        let viewModel = NewListContactsViewModel(service: service)
+        let dispatchService: ListContactsLoader = MainQueueDispatchDecorator(decoratee: service)
+        
+        let viewModel = NewListContactsViewModel(service: dispatchService)
         let refresh = ListContactsRefreshController(viewModel: viewModel)
         let controller = NewListContactsViewController(refreshController: refresh)
         viewModel.onListContactsItems = adaptContactToContactCellController(controller: controller)
@@ -24,6 +26,16 @@ final class ListContactsFactory {
     static func adaptContactToContactCellController(controller: NewListContactsViewController) -> ([Contact]) -> Void {
         return { [weak controller] items in
             controller?.contacts = items.map { ContactCellController(contact: $0) }
+        }
+    }
+}
+
+extension MainQueueDispatchDecorator: ListContactsLoader where T == ListContactsLoader {
+    func load(completion: @escaping (ResultLoader) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
         }
     }
 }
