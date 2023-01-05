@@ -6,11 +6,11 @@
 //  Copyright © 2023 PicPay. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class ListContactsFactory {
     
-    static func build() -> UIViewController {
+    static func build() -> NewListContactsViewController {
         let urlSession = URLSession(configuration: .ephemeral)
         let network = NetworkService(network: urlSession)
         let service = ListContactsUseCase(network: network)

@@ -7,6 +7,13 @@ final class ContactCellController {
         self.contact = contact
     }
     
+    class UserIdsLegacy {
+        static let legacyIds = [10, 11, 12, 13]
+        static func isLegacy(id: Int) -> Bool {
+            return legacyIds.contains(id)
+        }
+    }
+    
     func renderCell() -> ContactCell {
         let cell = ContactCell()
         cell.fullnameLabel.text = contact.name
@@ -20,6 +27,24 @@ final class ContactCellController {
         }
         
         return cell
+    }
+    
+    private func isLegacy(contact: Contact) -> Bool {
+        return UserIdsLegacy.isLegacy(id: contact.id)
+    }
+    
+    func didSelectRow(from viewController: UIViewController) {
+        guard isLegacy(contact: contact) else {
+            showAlert(title: "Você tocou em", message: "\(contact.name)", from: viewController)
+            return
+        }
+        showAlert(title: "Atenção", message:"Você tocou no contato sorteado", from: viewController)
+    }
+    
+    private func showAlert(title: String, message: String, from viewController: UIViewController) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        viewController.present(alert, animated: true)
     }
 }
 
