@@ -51,6 +51,4 @@ extension MainQueueDispatchDecorator: ListContactImageLoader where T == ListCont
             }
         }
     }
-    
-    
 }
